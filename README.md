@@ -1,7 +1,5 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/ErtugrulMuhsin/Kaza-Namazlari/main/.github/assets/app-icon.png" alt="Uygulama İkonu" width="150"/>
-
 # Kaza Namazları Takip Uygulaması
 
 </div>
