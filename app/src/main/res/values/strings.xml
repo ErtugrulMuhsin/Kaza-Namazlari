@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Kaza Namazları</string>
+    <string name="main_title">Kaza Namazları</string>
+    <string name="show_all_kazas_button">Tüm Kaza Namazlarımı Göster</string>
+    <string name="list_title">Kılınacak Kaza Namazları</string>
+    <string name="dialog_title_prefix">için Kaza Namazları</string>
+    <string name="save_and_close_button">Kaydet ve Kapat</string>
+    <string name="about_app_title">Uygulama Hakkında</string>
+    <string name="about_app_message">Yapımcı: Ertuğrul Muhsin DANACI\n\nBu uygulama, kaza namazlarınızı kolayca takip etmeniz için geliştirilmiştir.</string>
+    <string name="ok_button">Tamam</string>
+    <string name="no_kazas_to_show">Takip edilecek kaza namazı bulunmuyor.</string>
+    <string name="namaz_suffix">Namazı</string>
+    <string name="dialog_action_title">İşlem Seçin</string>
+    <string name="delete_kaza_button">Kaza Namazımı Kıldım</string>
+    <string name="cancel_button">İptal</string>
+    <string name="kaza_deleted_toast">Namaz kazası silindi.</string>
+</resources>
