@@ -1,11 +1,11 @@
 package com.ertugrulmuhsin.kazanamazlari
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 
 class KazaListActivity : AppCompatActivity() {
 
@@ -18,32 +18,27 @@ class KazaListActivity : AppCompatActivity() {
         setContentView(R.layout.activity_kaza_list)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        title = "Kaza Listesi"
+        title = getString(R.string.list_title)
 
         db = DatabaseHelper(this)
         kazaListView = findViewById(R.id.kazaListView)
 
-        // YENİ ÖZELLİK: Listedeki bir öğeye tıklandığında...
         kazaListView.setOnItemClickListener { parent, view, position, id ->
-            // Eğer liste boşsa ve "namaz bulunmuyor" yazısına tıklandıysa bir şey yapma.
             if (kazaList.isEmpty()) {
                 return@setOnItemClickListener
             }
 
-            // Tıklanan namazın bilgilerini al.
             val selectedKaza = kazaList[position]
             val tarih = selectedKaza.first
             val vakit = selectedKaza.second
             val selectedItemText = "$tarih - $vakit ${getString(R.string.namaz_suffix)}"
 
-            // Onay penceresi göster.
             showDeleteConfirmationDialog(tarih, vakit, selectedItemText)
         }
     }
 
     override fun onResume() {
         super.onResume()
-        // Ekran her açıldığında listeyi yenile.
         loadKazaNamazlari()
     }
 
@@ -61,23 +56,21 @@ class KazaListActivity : AppCompatActivity() {
         }
     }
 
-    // YENİ FONKSİYON: Silme onayı penceresi.
     private fun showDeleteConfirmationDialog(tarih: String, vakit: String, itemText: String) {
         AlertDialog.Builder(this)
             .setTitle(getString(R.string.dialog_action_title))
             .setMessage("'$itemText'\n\nBu kaza namazını kıldıysanız listeden silebilirsiniz.")
             .setPositiveButton(getString(R.string.delete_kaza_button)) { _, _ ->
-                // "Kıldım" butonuna basılınca...
-                db.deleteKaza(tarih, vakit) // Veritabanından sil.
-                Toast.makeText(this, getString(R.string.kaza_deleted_toast), Toast.LENGTH_SHORT).show() // Bilgi mesajı göster.
-                loadKazaNamazlari() // Listeyi yenile.
+                db.deleteKaza(tarih, vakit)
+                Toast.makeText(this, getString(R.string.kaza_deleted_toast), Toast.LENGTH_SHORT).show()
+                loadKazaNamazlari()
             }
-            .setNegativeButton(getString(R.string.cancel_button), null) // "İptal" butonu bir şey yapmaz.
+            .setNegativeButton(getString(R.string.cancel_button), null)
             .show()
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
+        onBackPressedDispatcher.onBackPressed()
         return true
     }
 }

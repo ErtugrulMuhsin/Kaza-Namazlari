@@ -1,12 +1,17 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
   <!-- Base application theme. -->
-  <style name="Base.Theme.KazaNamazlari" parent="Theme.Material3.DayNight"> <!-- .NoActionBar KISMI SİLİNDİ -->
-    <!-- Renk özelleştirmeleri burada yapılır -->
+  <style name="Base.Theme.KazaNamazlari" parent="Theme.Material3.DayNight">
+    <!-- Primary brand color. -->
     <item name="colorPrimary">@color/md_theme_primary</item>
     <item name="colorPrimaryVariant">@color/md_theme_primaryContainer</item>
     <item name="colorOnPrimary">@color/md_theme_onPrimary</item>
-    <!-- Diğer renkler... -->
-    
+    <!-- Secondary brand color. -->
+    <item name="colorSecondary">@color/md_theme_secondary</item>
+    <item name="colorSecondaryVariant">@color/md_theme_secondaryContainer</item>
+    <item name="colorOnSecondary">@color/md_theme_onSecondary</item>
+    <!-- Status bar color. -->
+    <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+    <!-- Font -->
     <item name="android:fontFamily">@font/montserrat</item>
   </style>
 
