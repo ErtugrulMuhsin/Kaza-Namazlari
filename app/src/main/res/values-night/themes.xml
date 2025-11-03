@@ -1,13 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.KazaNamazlari" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
-
-        <!-- YENİ EKLENEN FONT SATIRI -->
-        <item name="android:fontFamily">@font/montserrat</item>
-    </style>
-
-    <!-- Bu satır genellikle (night) versiyonunda olmaz ama varsa da zararı yok. -->
-    <style name="Theme.KazaNamazlari" parent="Base.Theme.KazaNamazlari" />
+  <!-- Base application theme. -->
+  <style name="Base.Theme.KazaNamazlari" parent="Theme.Material3.DayNight"> <!-- .NoActionBar KISMI SİLİNDİ -->
+    <!-- Karanlık tema renk özelleştirmeleri... -->
+    
+    <item name="android:fontFamily">@font/montserrat</item>
+  </style>
 </resources>

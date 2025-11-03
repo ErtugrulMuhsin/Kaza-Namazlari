@@ -2,16 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- Ayarlar Menü Öğesi -->
-    <!-- `ifRoom` sayesinde, eğer yer varsa ikon olarak, yoksa üç noktanın altında metin olarak görünür. -->
     <item
         android:id="@+id/action_settings"
         android:title="Ayarlar"
         android:icon="@android:drawable/ic_menu_preferences"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" /> <!-- DEĞİŞİKLİK BURADA: 'always' -->
 
-    <!-- Hakkında Menü Öğesi -->
-    <!-- `never` sayesinde bu her zaman üç noktanın altında metin olarak görünür. -->
     <item
         android:id="@+id/action_about"
         android:title="Hakkında"
