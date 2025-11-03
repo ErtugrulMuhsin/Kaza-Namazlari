@@ -1,5 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-  <style name="Base.Theme.KazaNamazlari" parent="Theme.Material3.DayNight.NoActionBar"> <!-- ARTIK BAŞLIK ÇUBUĞU YOK -->
+  <style name="Base.Theme.KazaNamazlari" parent="Theme.Material3.DayNight"> <!-- .NoActionBar SİLİNDİ, ESKİ HALİNE DÖNDÜ -->
     <item name="colorPrimary">@color/md_theme_primary</item>
     <item name="android:statusBarColor">?attr/colorPrimary</item>
     <item name="android:fontFamily">@font/montserrat</item>

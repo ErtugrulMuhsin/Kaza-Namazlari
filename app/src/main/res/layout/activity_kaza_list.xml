@@ -6,7 +6,6 @@
     android:orientation="vertical"
     tools:context=".KazaListActivity">
 
-    <!-- YENİ, BÜYÜK VE ŞIK BAŞLIK -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,20 +15,9 @@
         android:padding="16dp"
         android:gravity="center" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="?android:attr/listDivider"
-        android:layout_marginBottom="8dp"/>
-    
     <ListView
         android:id="@+id/kazaListView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="8dp"/>
+        android:layout_height="match_parent" />
 
 </LinearLayout>

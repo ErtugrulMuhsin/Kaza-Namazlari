@@ -17,9 +17,9 @@ class KazaListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_kaza_list)
 
-        // --- TEMİZLİK ---
-        // Üst bar (ActionBar) ile ilgili tüm kodlar buradan kaldırıldı.
-        // Artık başlık, tasarım dosyasının (XML) kendisi tarafından yönetiliyor.
+        // --- YENİ DÜZENLEME ---
+        // Bu ekrana özel olarak üst barı (ActionBar) gizle.
+        supportActionBar?.hide()
 
         db = DatabaseHelper(this)
         kazaListView = findViewById(R.id.kazaListView)
@@ -32,7 +32,6 @@ class KazaListActivity : AppCompatActivity() {
             val selectedKaza = kazaList[position]
             val tarih = selectedKaza.first
             val vakit = selectedKaza.second
-            // `R.string.namaz_suffix` yerine doğrudan metin kullanıldı, uyumluluk için.
             val selectedItemText = "$tarih - $vakit Namazı"
 
             showDeleteConfirmationDialog(tarih, vakit, selectedItemText)
@@ -48,7 +47,6 @@ class KazaListActivity : AppCompatActivity() {
         kazaList = db.getAllKaza()
 
         if (kazaList.isEmpty()) {
-            // `R.string.no_kazas_to_show` yerine doğrudan metin kullanıldı, uyumluluk için.
             val emptyList = listOf("Takip edilecek kaza namazı bulunmuyor.")
             val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, emptyList)
             kazaListView.adapter = adapter
@@ -61,7 +59,6 @@ class KazaListActivity : AppCompatActivity() {
 
     private fun showDeleteConfirmationDialog(tarih: String, vakit: String, itemText: String) {
         AlertDialog.Builder(this)
-             // `R.string` yerine doğrudan metinler kullanıldı, uyumluluk için.
             .setTitle("İşlem Seçin")
             .setMessage("'$itemText'\n\nBu kaza namazını kıldıysanız listeden silebilirsiniz.")
             .setPositiveButton("Kaza Namazımı Kıldım") { _, _ ->
@@ -72,8 +69,7 @@ class KazaListActivity : AppCompatActivity() {
             .setNegativeButton("İptal", null)
             .show()
     }
-
-    // --- TEMİZLİK ---
-    // `onSupportNavigateUp` fonksiyonu, artık bir geri oku olmadığı için buradan tamamen kaldırıldı.
-    // Telefonun kendi geri tuşu hala çalışmaya devam edecektir.
+    
+    // Not: `onSupportNavigateUp` fonksiyonu burada yok çünkü bir geri oku veya üst bar göstermiyoruz.
+    // Telefonun standart geri tuşu işlevini görmeye devam edecektir.
 }
