@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- "Hatırlatma Sıklığı" listesinde kullanıcıya görünecek metinler -->
+    <string-array name="notification_frequency_entries">
+        <item>Her Gün</item>
+        <item>Haftada Bir</item>
+        <item>Ayda Bir</item>
+        <item>Asla Hatırlatma</item>
+    </string-array>
+
+    <!-- Yukarıdaki metinlere karşılık gelen ve koda kaydedilecek olan değerler -->
+    <string-array name="notification_frequency_values">
+        <item>daily</item>
+        <item>weekly</item>
+        <item>monthly</item>
+        <item>never</item>
+    </string-array>
+</resources>

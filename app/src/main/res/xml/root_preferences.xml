@@ -1,0 +1,22 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="Hatırlatıcı Bildirimleri">
+
+        <SwitchPreferenceCompat
+            app:key="notifications_enabled"
+            app:title="Bildirimleri Etkinleştir"
+            app:summary="Kaza namazları için hatırlatma bildirimleri gönderilsin mi?"
+            app:defaultValue="true" />
+
+        <ListPreference
+            app:key="notification_frequency"
+            app:title="Hatırlatma Sıklığı"
+            app:summary="%s"
+            app:entries="@array/notification_frequency_entries"
+            app:entryValues="@array/notification_frequency_values"
+            app:defaultValue="daily"
+            app:dependency="notifications_enabled" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

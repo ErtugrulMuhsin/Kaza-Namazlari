@@ -1,6 +1,9 @@
 package com.ertugrulmuhsin.kazanamazlari
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -39,7 +42,13 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, KazaListActivity::class.java)
             startActivity(intent)
         }
-    }
+
+        // YENİ EKLENEN BÖLÜM: BİLDİRİM İZNİ VE İLK ZAMANLAMA
+        requestNotificationPermission()
+        NotificationScheduler.scheduleNotification(this)
+    } // onCreate fonksiyonunun kapanışı
+
+    // --- onCreate fonksiyonundan sonraki diğer fonksiyonlar ---
 
     private fun showKazaDialog() {
         val vakitler = arrayOf("Sabah", "Öğle", "İkindi", "Akşam", "Yatsı")
@@ -48,7 +57,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         val builder = AlertDialog.Builder(this)
-        // GÜNCELLENDİ: Başlık artık strings.xml'den geliyor.
         builder.setTitle("$selectedDate ${getString(R.string.dialog_title_prefix)}")
         builder.setMultiChoiceItems(vakitler, checkedItems) { _, which, isChecked ->
             if (isChecked) {
@@ -58,7 +66,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // GÜNCELLENDİ: Buton metni strings.xml'den geliyor.
         builder.setPositiveButton(getString(R.string.save_and_close_button)) { dialog, _ ->
             dialog.dismiss()
         }
@@ -73,6 +80,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
+            R.id.action_settings -> {
+                val intent = Intent(this, SettingsActivity::class.java)
+                startActivity(intent)
+                true
+            }
+
             R.id.action_about -> {
                 showAboutDialog()
                 true
@@ -82,11 +95,23 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showAboutDialog() {
-        // GÜNCELLENDİ: Tüm metinler strings.xml'den geliyor.
         AlertDialog.Builder(this)
             .setTitle(getString(R.string.about_app_title))
             .setMessage(getString(R.string.about_app_message))
             .setPositiveButton(getString(R.string.ok_button), null)
             .show()
+    }
+
+    // YENİ EKLENEN FONKSİYON: BİLDİRİM İZNİ İSTEME
+    private fun requestNotificationPermission() {
+        // Sadece Android 13 (API 33, kod adı TIRAMISU) ve üstü için bu kontrolü yap.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            // Eğer bildirim gönderme iznimiz henüz verilmemişse...
+            if (checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+                // Kullanıcıya izin isteme diyalogunu göster.
+                // 101, bu isteği tanımak için kullandığımız bir kod numarasıdır.
+                requestPermissions(arrayOf(Manifest.permission.POST_NOTIFICATIONS), 101)
+            }
+        }
     }
 }

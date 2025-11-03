@@ -1,5 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Ana Renkler (Açık Tema) -->
+    <color name="md_theme_primary">#5D5F7A</color> <!-- Koyu Arduvaz Mavisi -->
+    <color name="md_theme_onPrimary">#FFFFFF</color> <!-- Beyaz -->
+    <color name="md_theme_primaryContainer">#E3E0FF</color>
+    <color name="md_theme_onPrimaryContainer">#1A1C33</color>
+    <color name="md_theme_secondary">#5E5D72</color> <!-- Vurgu Rengi -->
+    <color name="md_theme_onSecondary">#FFFFFF</color>
+    <color name="md_theme_secondaryContainer">#E3E1F9</color>
+    <color name="md_theme_onSecondaryContainer">#1B1B2C</color>
+    <color name="md_theme_tertiary">#D4AF37</color> <!-- Altın Vurgu -->
+    <color name="md_theme_onTertiary">#FFFFFF</color>
+    <color name="md_theme_tertiaryContainer">#FFDDB3</color>
+    <color name="md_theme_onTertiaryContainer">#291800</color>
+    <color name="md_theme_error">#BA1A1A</color>
+    <color name="md_theme_onError">#FFFFFF</color>
+    <color name="md_theme_errorContainer">#FFDAD6</color>
+    <color name="md_theme_onErrorContainer">#410002</color>
+    <color name="md_theme_background">#FEFBFF</color> <!-- Arka Plan Rengi -->
+    <color name="md_theme_onBackground">#1B1B1F</color>
+    <color name="md_theme_surface">#FEFBFF</color>
+    <color name="md_theme_onSurface">#1B1B1F</color>
+    <color name="md_theme_surfaceVariant">#E5E1EC</color>
+    <color name="md_theme_onSurfaceVariant">#47464F</color>
+    <color name="md_theme_outline">#787680</color>
+    <color name="md_theme_inverseOnSurface">#F3F0F4</color>
+    <color name="mdtheme_inverseSurface">#303034</color>
+    <color name="md_theme_inversePrimary">#C6C4EB</color>
+    <color name="md_theme_shadow">#000000</color>
+    <color name="md_theme_surfaceTint">#5D5F7A</color>
+    <color name="md_theme_outlineVariant">#C8C5D0</color>
+    <color name="md_theme_scrim">#000000</color>
+
+    <!-- Bu renkleri de ekleyelim, eski temalarla uyumluluk için -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>

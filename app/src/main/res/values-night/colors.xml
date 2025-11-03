@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Ana Renkler (Karanlık Tema) -->
+    <color name="md_theme_primary">#C6C4EB</color>
+    <color name="md_theme_onPrimary">#2F3049</color>
+    <color name="md_theme_primaryContainer">#464661</color>
+    <color name="md_theme_onPrimaryContainer">#E3E0FF</color>
+    <color name="md_theme_secondary">#C7C5DD</color>
+    <color name="md_theme_onSecondary">#302F41</color>
+    <color name="md_theme_secondaryContainer">#464659</color>
+    <color name="md_theme_onSecondaryContainer">#E3E1F9</color>
+    <color name="md_theme_tertiary">#EAC276</color>
+    <color name="md_theme_onTertiary">#402C00</color>
+    <color name="md_theme_tertiaryContainer">#594119</color>
+    <color name="md_theme_onTertiaryContainer">#FFDDB3</color>
+    <color name="md_theme_error">#FFB4AB</color>
+    <color name="md_theme_onError">#690005</color>
+    <color name="md_theme_errorContainer">#93000A</color>
+    <color name="md_theme_onErrorContainer">#FFDAD6</color>
+    <color name="md_theme_background">#1B1B1F</color>
+    <color name="md_theme_onBackground">#E5E1E6</color>
+    <color name="md_theme_surface">#1B1B1F</color>
+    <color name="md_theme_onSurface">#E5E1E6</color>
+    <color name="md_theme_surfaceVariant">#47464F</color>
+    <color name="md_theme_onSurfaceVariant">#C8C5D0</color>
+    <color name="md_theme_outline">#928F99</color>
+    <color name="md_theme_inverseOnSurface">#1B1B1F</color>
+    <color name="mdtheme_inverseSurface">#E5E1E6</color>
+    <color name="md_theme_inversePrimary">#5D5F7A</color>
+    <color name="md_theme_shadow">#000000</color>
+    <color name="md_theme_surfaceTint">#C6C4EB</color>
+    <color name="md_theme_outlineVariant">#47464F</color>
+    <color name="md_theme_scrim">#000000</color>
+</resources>

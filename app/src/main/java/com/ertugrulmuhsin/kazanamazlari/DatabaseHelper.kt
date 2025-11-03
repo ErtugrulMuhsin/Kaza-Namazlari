@@ -74,4 +74,17 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         }
         return kazaList
     }
+    /**
+     * Veritabanındaki toplam kaza namazı kaydının sayısını döndürür.
+     * @return Toplam kaza sayısı (Integer).
+     */
+    fun getKazaCount(): Int {
+        val countQuery = "SELECT * FROM $TABLE_KAZA"
+        val db = this.readableDatabase
+        val cursor = db.rawQuery(countQuery, null)
+        val count = cursor.count
+        cursor.close()
+        db.close() // Veritabanı bağlantısını kapatmak önemlidir.
+        return count
+    }
 }
