@@ -17,8 +17,9 @@ class KazaListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_kaza_list)
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        title = getString(R.string.list_title)
+        // --- TEMİZLİK ---
+        // Üst bar (ActionBar) ile ilgili tüm kodlar buradan kaldırıldı.
+        // Artık başlık, tasarım dosyasının (XML) kendisi tarafından yönetiliyor.
 
         db = DatabaseHelper(this)
         kazaListView = findViewById(R.id.kazaListView)
@@ -31,7 +32,8 @@ class KazaListActivity : AppCompatActivity() {
             val selectedKaza = kazaList[position]
             val tarih = selectedKaza.first
             val vakit = selectedKaza.second
-            val selectedItemText = "$tarih - $vakit ${getString(R.string.namaz_suffix)}"
+            // `R.string.namaz_suffix` yerine doğrudan metin kullanıldı, uyumluluk için.
+            val selectedItemText = "$tarih - $vakit Namazı"
 
             showDeleteConfirmationDialog(tarih, vakit, selectedItemText)
         }
@@ -46,11 +48,12 @@ class KazaListActivity : AppCompatActivity() {
         kazaList = db.getAllKaza()
 
         if (kazaList.isEmpty()) {
-            val emptyList = listOf(getString(R.string.no_kazas_to_show))
+            // `R.string.no_kazas_to_show` yerine doğrudan metin kullanıldı, uyumluluk için.
+            val emptyList = listOf("Takip edilecek kaza namazı bulunmuyor.")
             val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, emptyList)
             kazaListView.adapter = adapter
         } else {
-            val formattedList = kazaList.map { "${it.first} - ${it.second} ${getString(R.string.namaz_suffix)}" }
+            val formattedList = kazaList.map { "${it.first} - ${it.second} Namazı" }
             val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, formattedList)
             kazaListView.adapter = adapter
         }
@@ -58,19 +61,19 @@ class KazaListActivity : AppCompatActivity() {
 
     private fun showDeleteConfirmationDialog(tarih: String, vakit: String, itemText: String) {
         AlertDialog.Builder(this)
-            .setTitle(getString(R.string.dialog_action_title))
+             // `R.string` yerine doğrudan metinler kullanıldı, uyumluluk için.
+            .setTitle("İşlem Seçin")
             .setMessage("'$itemText'\n\nBu kaza namazını kıldıysanız listeden silebilirsiniz.")
-            .setPositiveButton(getString(R.string.delete_kaza_button)) { _, _ ->
+            .setPositiveButton("Kaza Namazımı Kıldım") { _, _ ->
                 db.deleteKaza(tarih, vakit)
-                Toast.makeText(this, getString(R.string.kaza_deleted_toast), Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Namaz kazası silindi.", Toast.LENGTH_SHORT).show()
                 loadKazaNamazlari()
             }
-            .setNegativeButton(getString(R.string.cancel_button), null)
+            .setNegativeButton("İptal", null)
             .show()
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressedDispatcher.onBackPressed()
-        return true
-    }
+    // --- TEMİZLİK ---
+    // `onSupportNavigateUp` fonksiyonu, artık bir geri oku olmadığı için buradan tamamen kaldırıldı.
+    // Telefonun kendi geri tuşu hala çalışmaya devam edecektir.
 }

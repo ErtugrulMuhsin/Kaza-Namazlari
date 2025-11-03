@@ -4,14 +4,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
     tools:context=".KazaListActivity">
 
-    <!-- FAZLADAN OLAN BAŞLIK TEXTVIEW'İ BURADAN SİLİNDİ -->
+    <!-- YENİ, BÜYÜK VE ŞIK BAŞLIK -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/list_title"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:padding="16dp"
+        android:gravity="center" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        android:layout_marginBottom="8dp"/>
+    
     <ListView
         android:id="@+id/kazaListView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="8dp"/>
 
 </LinearLayout>
