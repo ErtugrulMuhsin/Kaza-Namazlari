@@ -7,7 +7,7 @@
     android:padding="16dp"
     tools:context=".KazaListActivity">
 
-    <!-- BAŞLIK YAZISI SİLİNDİ -->
+    <!-- FAZLADAN OLAN BAŞLIK TEXTVIEW'İ BURADAN SİLİNDİ -->
 
     <ListView
         android:id="@+id/kazaListView"
